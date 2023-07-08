@@ -1,0 +1,367 @@
+name: 'Admin endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/travels
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Travel'
+      description: 'Create a new Travel.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: iure
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: 'Deserunt aliquam consequatur nam et quam.'
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: false
+      name: iure
+      description: 'Deserunt aliquam consequatur nam et quam.'
+      number_of_days: 2
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"New travel","slug":"new-travel","description":"The best travel ever!","number_of_days":"7","number_of_nights":6}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"Validation errors"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer D5Pf6a4V3E6cd8vZe1gbahk'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}/tours'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Tour'
+      description: 'Create a new Tour.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 9997f6c1-5452-4411-acfb-92209b71c119
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 9997f6c1-5452-4411-acfb-92209b71c119
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: ouqv
+        type: string
+        custom: []
+      starting_date:
+        name: starting_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-07-08T02:05:35'
+        type: string
+        custom: []
+      ending_date:
+        name: ending_date
+        description: 'Must be a valid date. Must be a date after <code>starting_date</code>.'
+        required: true
+        example: '2036-03-05'
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 6147.9989657
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: ouqv
+      starting_date: '2023-07-08T02:05:35'
+      ending_date: '2036-03-05'
+      price: 6147.9989657
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":"996a381e-64ca-46ba-8b51-f8279d5529ad","name":"New tour","starting_date":"2023-06-15","ending_date":"2023-06-20","price":"99.99"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Resource Not Found"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"Validation errors"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Ded66EvVaZk5b4Pag1f38ch'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/travels/{travel_id}/delete'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'DELETE Travel'
+      description: 'Deletes new Travel.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 9997f6c1-5452-4411-acfb-92209b71c119
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 9997f6c1-5452-4411-acfb-92209b71c119
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Travel Not Found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vg1EaekZ6f3d5v64b8DcPha'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/travels/{travel_id}/update'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'PUT Travel'
+      description: 'Updates new Travel.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 9997f6c1-5452-4411-acfb-92209b71c119
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 9997f6c1-5452-4411-acfb-92209b71c119
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: accusamus
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: 'Illum occaecati itaque quas.'
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 19
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: false
+      name: accusamus
+      description: 'Illum occaecati itaque quas.'
+      number_of_days: 19
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"New travel updated","slug":"new-travel-updated","description":"The best travel ever!","number_of_days":"7","number_of_nights":6}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message":"Forbidden"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"message":"Travel Not Found"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"Validation errors"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 66bPeghdack4aDZ5f8E1vV3'
+    controller: null
+    method: null
+    route: null
+    custom: []
