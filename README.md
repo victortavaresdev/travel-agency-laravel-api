@@ -8,7 +8,7 @@
       <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
   </a>
   <a href="https://www.mysql.com">
-    <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
+      <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" >
   </a>
 </p>
 
@@ -18,6 +18,8 @@
   <a href="#technologies">Technologies</a> •
   <a href="#license">License</a>
 </p>
+
+<img src="https://github.com/victortavaresdev/victortavaresdev/blob/main/turismo.jpg" alt="travel agency" />
 
 ## Key Features
 
@@ -58,10 +60,6 @@ $ composer install
 # Generate the Laravel project key
 $ php artisan key:generate
 ```
-
-Access the API endpoints (BASE_URL):
-
--   http://localhost:8000/api/v1/
 
 ## Technologies
 
