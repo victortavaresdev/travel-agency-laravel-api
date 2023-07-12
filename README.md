@@ -19,7 +19,9 @@
   <a href="#license">License</a>
 </p>
 
-<img src="https://github.com/victortavaresdev/victortavaresdev/blob/main/turismo.jpg" alt="travel agency" />
+<p align="center">
+  <img src="https://github.com/victortavaresdev/victortavaresdev/blob/main/travel.jpg" alt="travel agency" />
+</p>
 
 ## Key Features
 
