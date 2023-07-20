@@ -11,6 +11,10 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    public string $adminURI = 'api/v1/admin';
+    public string $authURI = 'api/v1/auth';
+    public string $travelURI = 'api/v1/travels';
+
     public function createUser()
     {
         return User::factory()->create();

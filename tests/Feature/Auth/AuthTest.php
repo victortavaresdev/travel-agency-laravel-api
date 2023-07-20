@@ -10,22 +10,14 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
-    private User $user;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->user = $this->createUser();
-    }
-
     public function test_login_returns_token_with_valid_credentials(): void
     {
         // Arrange
+        $user = $this->createUser();
 
         // Act
         $response = $this
-            ->postJson('/api/v1/auth/login', ['email' => $this->user->email, 'password' => 'test_password']);
+            ->postJson("{$this->authURI}/login", ['email' => $user->email, 'password' => 'test_password']);
 
         // Assert
         $response
@@ -39,7 +31,7 @@ class AuthTest extends TestCase
 
         // Act
         $response = $this
-            ->postJson('/api/v1/auth/login', ['email' => 'invalid@gmail.com', 'password' => 'wrond_password']);
+            ->postJson("{$this->authURI}/login", ['email' => 'invalid@gmail.com', 'password' => 'wrond_password']);
 
         // Assert
         $response

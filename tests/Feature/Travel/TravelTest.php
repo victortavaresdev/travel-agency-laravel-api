@@ -21,7 +21,7 @@ class TravelTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson('/api/v1/travels');
+            ->getJson("{$this->travelURI}");
 
         // Assert
         $response
@@ -46,7 +46,7 @@ class TravelTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson('/api/v1/travels');
+            ->getJson("{$this->travelURI}");
 
         // Assert
         $response

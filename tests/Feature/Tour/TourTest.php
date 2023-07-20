@@ -19,7 +19,7 @@ class TourTest extends TestCase
         $this->travel = $this->createTravel();
     }
 
-    public function test_tours_list_by_travel_slug_returns_correct_tours(): void
+    public function test_tours_list_by_travel_slug_returns_data_successfully(): void
     {
         // Arrange
         $this->createTour(
@@ -29,7 +29,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours");
 
         // Assert
         $response
@@ -50,7 +50,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours");
 
         // Assert
         $response
@@ -71,7 +71,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours");
 
         // Assert
         $response
@@ -102,7 +102,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours");
 
         // Assert
         $response
@@ -140,7 +140,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours?sortBy=price&sortOrder=asc");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours?sortBy=price&sortOrder=asc");
 
         // Assert
         $response
@@ -179,7 +179,7 @@ class TourTest extends TestCase
 
         // Act
         $response = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours?priceFrom=100&priceTo=500");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours?priceFrom=100&priceTo=500");
 
         // Assert
         $response
@@ -196,13 +196,13 @@ class TourTest extends TestCase
 
         // Act
         $response1 = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours?dateFrom=something&dateTo=wrong");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours?dateFrom=something&dateTo=wrong");
 
         $response2 = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours?priceFrom=something&priceTo=wrong");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours?priceFrom=something&priceTo=wrong");
 
         $response3 = $this
-            ->getJson("api/v1/travels/{$this->travel->slug}/tours?sortBy=something&sortOrder=wrong");
+            ->getJson("{$this->travelURI}/{$this->travel->slug}/tours?sortBy=something&sortOrder=wrong");
 
         // Assert
         $response1

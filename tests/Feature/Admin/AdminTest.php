@@ -36,7 +36,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->postJson('/api/v1/admin/travels', $travel);
+            ->postJson("{$this->adminURI}/travels", $travel);
 
         // Assert
         $response
@@ -54,7 +54,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->postJson("/api/v1/admin/travels/{$this->travel->id}/tours", $tour);
+            ->postJson("{$this->adminURI}/travels/{$this->travel->id}/tours", $tour);
 
         // Assert
         $response
@@ -72,7 +72,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->putJson("/api/v1/admin/travels/{$this->travel->id}/update", $updatedTravel);
+            ->putJson("{$this->adminURI}/travels/{$this->travel->id}/update", $updatedTravel);
 
         // Assert
         $response
@@ -90,7 +90,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->putJson("/api/v1/admin/travels/{$this->travel->id}/update", $updatedTravel);
+            ->putJson("{$this->adminURI}/travels/{$this->travel->id}/update", $updatedTravel);
 
         // Assert
         $response
@@ -106,7 +106,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->deleteJson("/api/v1/admin/travels/{$this->travel->id}/delete");
+            ->deleteJson("{$this->adminURI}/travels/{$this->travel->id}/delete");
 
         // Assert
         $response
@@ -124,7 +124,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->postJson('/api/v1/admin/travels');
+            ->postJson("{$this->adminURI}/travels");
 
         // Assert
         $response
@@ -141,7 +141,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->postJson("/api/v1/admin/travels/{$this->travel->id}/tours", $tour);
+            ->postJson("{$this->adminURI}/travels/{$this->travel->id}/tours", $tour);
 
         // Assert
         $response
@@ -156,7 +156,7 @@ class AdminTest extends TestCase
         // Act
         $response = $this
             ->actingAs($this->user)
-            ->deleteJson("/api/v1/admin/travels/{$this->travel->id}/delete");
+            ->deleteJson("{$this->adminURI}/travels/{$this->travel->id}/delete");
 
         // Assert
         $response
@@ -169,7 +169,7 @@ class AdminTest extends TestCase
 
         // Act
         $response = $this
-            ->postJson('/api/v1/admin/travels');
+            ->postJson("{$this->adminURI}/travels");
 
         // Assert
         $response
@@ -182,7 +182,7 @@ class AdminTest extends TestCase
 
         // Act
         $response = $this
-            ->postJson("/api/v1/admin/travels/{$this->travel->id}/tours");
+            ->postJson("{$this->adminURI}/travels/{$this->travel->id}/tours");
 
         // Assert
         $response
