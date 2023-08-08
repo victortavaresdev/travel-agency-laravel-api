@@ -1,0 +1,35 @@
+name: Laravel Pint
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  laravel-pint:
+    name: Run code style fixer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+
+      - name: Install composer dependencies
+        run: composer install -n --prefer-dist
+
+      - name: Run Laravel Pint in app folder
+        run: ./vendor/bin/pint app
+
+      - name: Run Laravel Pint in config folder
+        run: ./vendor/bin/pint config
+
+      - name: Run Laravel Pint in database folder
+        run: ./vendor/bin/pint database
+
+      - name: Run Laravel Pint in routes folder
+        run: ./vendor/bin/pint routes
