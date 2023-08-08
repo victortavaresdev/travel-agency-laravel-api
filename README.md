@@ -34,6 +34,7 @@
 -   Data validation
 -   Error Handling
 -   API Documentation with Scribe
+-   Continuous Integration with Github Actions
 -   Dockerized application
 
 ## How To Use
